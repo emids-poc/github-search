@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import {
+  HttpClient
+} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
+})
+export class SearchComponent implements OnInit {
+  searchText: string;
+  searchResults: any;
+  displayedColumns: string[] = ['id', 'name', 'full_name', 'description', 'language', 'html_url', 'homepage'];
+
+  constructor(private http: HttpClient) { 
+    this.searchText = null;
+    this.searchResults = {
+      items: []
+    };
+  }
+
+  ngOnInit() {
+  }
+
+  search() {
+    this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+org:Navvisemids', {
+      headers: {
+        'Authorization': 'token ' + environment.token,
+        'Content-Type': 'application/json'
+      }
+    }).subscribe(
+      (response: any) => {
+        console.log(response)
+        this.searchResults = response;
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    )
+  }
+
+}

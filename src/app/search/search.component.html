@@ -1,0 +1,56 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input name="search" type="search" matInput placeholder="Search Text" [(ngModel)]="searchText">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="search()">Search</button>
+</form>
+<mat-table [dataSource]="searchResults.items" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="full_name">
+      <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.full_name}} </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="language">
+      <mat-header-cell *matHeaderCellDef> Language </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.language}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="html_url">
+      <mat-header-cell *matHeaderCellDef> URL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <a target="_blank" [href]="element.html_url">{{element.html_url}}</a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="homepage">
+      <mat-header-cell *matHeaderCellDef> Home Page </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <a target="_blank" [href]="element.homepage">{{element.homepage}}</a>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<!-- <div>
+  <ul>
+    <li *ngFor="let item of searchResults.items">
+      <h4><a target="_blank" [href]="item.html_url">{{item.html_url}}</a></h4>
+    </li>
+  </ul>
+</div> -->
