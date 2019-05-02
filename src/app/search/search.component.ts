@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   HttpClient
 } from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {config} from './token.config';
 
 @Component({
   selector: 'app-search',
@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
   search() {
     this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+org:Navvisemids', {
       headers: {
-        'Authorization': 'token ' + environment.token,
+        'Authorization': 'token ' + config.token,
         'Content-Type': 'application/json'
       }
     }).subscribe(
