@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+org:Navvisemids', {
+    this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+org:ghosh81', {
       headers: {
         'Authorization': 'token ' + config.token,
         'Content-Type': 'application/json'

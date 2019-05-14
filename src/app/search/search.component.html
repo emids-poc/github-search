@@ -1,9 +1,11 @@
-<form class="example-form">
+
+<form class="example-form text-center">
     <mat-form-field class="example-full-width">
       <input name="search" type="search" matInput placeholder="Search Text" [(ngModel)]="searchText">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="search()">Search</button>
 </form>
+
 <mat-table [dataSource]="searchResults.items" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
