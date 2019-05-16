@@ -1,7 +1,7 @@
 
 <form class="example-form text-center">
     <mat-form-field class="example-full-width">
-      <input name="search" type="search" matInput placeholder="Search Text" [(ngModel)]="searchText">
+      <input name="search" type="search" matInput placeholder="Search" [(ngModel)]="searchText">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="search()">Search</button>
 </form>
@@ -36,13 +36,6 @@
       <mat-header-cell *matHeaderCellDef> URL </mat-header-cell>
       <mat-cell *matCellDef="let element"> 
         <a target="_blank" [href]="element.html_url">{{element.html_url}}</a>
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="homepage">
-      <mat-header-cell *matHeaderCellDef> Home Page </mat-header-cell>
-      <mat-cell *matCellDef="let element"> 
-        <a target="_blank" [href]="element.homepage">{{element.homepage}}</a>
       </mat-cell>
     </ng-container>
   

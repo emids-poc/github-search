@@ -12,7 +12,7 @@ import {config} from './token.config';
 export class SearchComponent implements OnInit {
   searchText: string;
   searchResults: any;
-  displayedColumns: string[] = ['id', 'name', 'full_name', 'description', 'language', 'html_url', 'homepage'];
+  displayedColumns: string[] = ['id', 'name', 'full_name', 'description', 'language', 'html_url'];
 
   constructor(private http: HttpClient) { 
     this.searchText = null;
@@ -22,6 +22,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.searchText = '';
+    this.search();
   }
 
   search() {

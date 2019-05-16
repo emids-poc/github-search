@@ -1,19 +1,14 @@
-
 footer {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
     background-color: #ff7b27;
     background: linear-gradient(135deg,#ff7b27 0%,#c77117a3 100%);
-    position: absolute;
     word-wrap: break-word;
-    margin-top:10em;
+    margin-top:2.3em;
     margin-bottom: 0;
-    bottom:0;
     width:100%;
 }   
 .display-5 {
     font-family: 'Source Sans Pro',sans-serif;
-    font-size: 2rem;
+    font-size: 1em;
 }
 .mbr-text {
     font-style: normal;
@@ -37,10 +32,11 @@ footer {
 a, a:hover {
     color: #0b3961;
 }
-.cid-qPhVB6NKfn .mbr-text {
+.footer .mbr-text {
     color: #ffffff;
     text-align: center;
 }
 .table-grid {
-    width:80%;
+    width:90%;
+    min-height:360px;
 }
