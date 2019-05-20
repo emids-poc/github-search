@@ -11,11 +11,13 @@ import {MatTableModule} from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
+import { FilterPipe } from './search/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

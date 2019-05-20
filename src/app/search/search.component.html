@@ -1,17 +1,13 @@
 
 <form class="example-form text-center">
     <mat-form-field class="example-full-width">
-      <input name="search" type="search" matInput placeholder="Search" [(ngModel)]="searchText">
+      <input name="search" type="search" matInput placeholder="Search"  [(ngModel)]="searchText">
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="search()">Search</button>
 </form>
 
 <mat-table [dataSource]="searchResults.items" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
-    </ng-container>
-  
+    
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
@@ -30,6 +26,10 @@
     <ng-container matColumnDef="language">
       <mat-header-cell *matHeaderCellDef> Language </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.language}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef> Author </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="html_url">
