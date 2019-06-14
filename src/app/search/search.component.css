@@ -6,10 +6,22 @@ table {
     width:25%;
   }
   mat-header-cell{
-    color:#000000fa;
+    color:#fff;
     font-size: 1em;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    padding-left: 0.63em;
   }
-
+  mat-header-cell:first-of-type{
+    padding-left: 0.63em;
+  }
+  mat-header-row{
+    background-color: #ff7b27;
+  }
   .mat-raised-button{
     margin: 0 10px;
-  }  
+  }
+  .mat-cell{
+    border: 1px solid #ccc;
+    padding-left: 0.63em;
+  }

@@ -28,7 +28,7 @@ export class SearchComponent implements OnInit {
   }
 
   search() {
-    this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+org:' + config.orgName, {
+    this.http.get('https://api.github.com/search/repositories?q=' + this.searchText + '+in:name,description+org:' + config.orgName, {
       headers: {
         'Authorization': 'token ' + config.token,
         'Content-Type': 'application/json'
@@ -41,6 +41,7 @@ export class SearchComponent implements OnInit {
             let splitDesc: any[] = res.description.split('||');   
               this.searchResults.items[index].author = _.trimStart(splitDesc[0]);
               this.searchResults.items[index].description = _.trimStart(splitDesc[1]);
+              this.searchResults.items[index].language = _.trimStart(splitDesc[2]);
           }
         });    
       },

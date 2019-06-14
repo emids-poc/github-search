@@ -5,6 +5,8 @@ footer {
     margin-top:2.3em;
     margin-bottom: 0;
     width:100%;
+    position: absolute;
+    bottom: 0;
 }   
 .display-5 {
     font-family: 'Source Sans Pro',sans-serif;
@@ -20,7 +22,6 @@ footer {
     
 }
 .align-center-heading{
-    text-align: center;
     padding-top:0.5em;
 }
 .container {
@@ -39,4 +40,18 @@ a, a:hover {
 .table-grid {
     width:90%;
     min-height:360px;
+}
+.title{
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    font-weight: 800;
+    color: #484848;
+    margin-left:3.5em;
+}
+.img-logo{
+    float: left;
+    padding-left: 4em;
+    height: 70px;
 }
