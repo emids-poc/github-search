@@ -24,4 +24,37 @@ table {
   .mat-cell{
     border: 1px solid #ccc;
     padding-left: 0.63em;
+    align-self: stretch;
+  }
+  .page-item .page-link{
+    background-color: #ff7b27;
+    background: linear-gradient(135deg,#ff7b27 0%,#f87e33 100%);
+    color:#fff;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .page-item .active{
+    background: linear-gradient(135deg,#b94700 0%,#c76528 100%);
+  }
+  .page-item .disabled {
+    color: gray;
+    cursor: not-allowed;
+  }
+
+  .btn-search{
+    background-color: #ff7b27;
+  }
+
+  .push-top{
+    top: 18px;
+  }
+  .pull-right{
+    float: right;
+  }
+
+  /*!importan: keep this in the end of file, for some reason angular property is not working.
+  making it work. */
+  [hidden] {
+    display: none !important;
   }

@@ -3,9 +3,9 @@
     <mat-form-field class="example-full-width">
       <input name="search" type="search" matInput placeholder="Search"  [(ngModel)]="searchText">
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="search()">Search</button>
+    <button mat-raised-button class="btn-search" (click)="search()">Search</button>
 </form>
-
+<!-- <p>{{searchResults.last_response.rels[:last].href.match(/page=(\d+).*$/)[1]}}</p> -->
 <mat-table [dataSource]="searchResults.items" class="mat-elevation-z8">
     
     <ng-container matColumnDef="name">
@@ -42,6 +42,35 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+
+<!-- paginator -->
+<div class="row">
+  <div class="col-sm-8">
+    <nav aria-label="Page navigation">
+      <ul class="pagination pagination-lg">
+        <li class="page-item" [hidden]="paginator.totalPage <= 1"><a class="page-link" [class.disabled]="paginator.currentPage <= 1" href="#" (click)="paginator.currentPage > 1 && search(paginator.currentPage -1)">Previous</a></li>
+        
+        <li class="page-item" [hidden]="paginator.totalPage < 1"><a [className]="paginator.pageLocation1 == paginator.currentPage ? 'page-link active' : 'page-link'"
+          href="#" (click)="search(paginator.pageLocation1)">{{paginator.pageLocation1}}</a></li>
+        
+        <li class="page-item" [hidden]="paginator.totalPage < 2"><a [className]="paginator.pageLocation2 == paginator.currentPage ? 'page-link active' : 'page-link'"
+          href="#" (click)="search(paginator.pageLocation2)">{{paginator.pageLocation2}}</a></li>
+        
+        <li class="page-item" [hidden]="paginator.totalPage < 3">
+          <a [className]="paginator.pageLocation3 == paginator.currentPage ? 'page-link active' : 'page-link'"
+          href="#" (click)="search(paginator.pageLocation3)">{{paginator.pageLocation3}}</a></li>
+        
+        <li class="page-item" [hidden]="paginator.totalPage <= 1">
+          <a class="page-link" [class.disabled]="paginator.totalPage == paginator.currentPage" href="#" (click)="paginator.totalPage != paginator.currentPage && search(paginator.currentPage + 1)" >Next</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-sm-4 push-top">
+      <span class="pull-right">Total Page{{paginator.totalPage > 1 ? 's' : ''}}: {{paginator.totalPage}}</span>
+  </div>
+</div>
+  <!-- paginator -->
+
 <!-- <div>
   <ul>
     <li *ngFor="let item of searchResults.items">
